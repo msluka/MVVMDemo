@@ -17,6 +17,7 @@ namespace MVVMDemo.MVVM.ViewModels
         // Create a Command - Way 1 --END
         */
 
+        /*
         // Create a Command - Way 2 --START
         public ICommand ClickCommand =>
            new Command(Alert);
@@ -27,5 +28,22 @@ namespace MVVMDemo.MVVM.ViewModels
 
         }
         // Create a Command - Way 2 --END
+        */
+
+        // Create a Command - Way 3 --START
+        public ICommand ClickCommand { get; }
+
+        public CommandsViewModel()
+        {
+
+            ClickCommand = new Command(() =>
+            {
+                App.Current.MainPage.DisplayAlert("Title", "Message", "Ok");
+
+            });
+
+        }
+        // Create a Command - Way 3 --END
     }
+
 }
