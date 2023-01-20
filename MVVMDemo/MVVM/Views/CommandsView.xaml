@@ -6,6 +6,10 @@
     <StackLayout>
         <Button Text="Click Me!"
                 Command="{Binding ClickCommand}"/>
-  
+
+        <SearchBar
+            Text="{Binding SearchTerm}"
+            SearchCommand="{Binding SearchCommand}"/>
+
     </StackLayout>
 </ContentPage>
