@@ -47,6 +47,7 @@ namespace MVVMDemo.MVVM.ViewModels
         // Create a Command - Way 3 --END
         */
 
+        /*
         // Passing parameters to a Command - Way 1 --START 
         public ICommand SearchCommand { get; }
         public string SearchTerm { get; set; }
@@ -54,7 +55,7 @@ namespace MVVMDemo.MVVM.ViewModels
         public CommandsViewModel()
         {            
 
-            SearchCommand = new Command(() =>
+            SearchCommand = new Command((s) =>
             {
                 var data = SearchTerm;
                 App.Current.MainPage.DisplayAlert("Title", data, "Ok");
@@ -63,8 +64,25 @@ namespace MVVMDemo.MVVM.ViewModels
 
         }
         // Passing parameters to a Command - Way 1 --END
+        */
 
-        
+        // Passing parameters to a Command - Way 2 --START 
+        public ICommand SearchCommand { get; }     
+
+        public CommandsViewModel()
+        {
+
+            SearchCommand = new Command((s) =>
+            {
+                var data = s;
+                App.Current.MainPage.DisplayAlert("Title", data.ToString(), "Ok");
+
+            });
+
+        }
+        // Passing parameters to a Command - Way 2 --END
+
+
 
     }
 
